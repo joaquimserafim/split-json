@@ -7,11 +7,6 @@ var split = require('../');
 
 var rs = fs.createReadStream('./test/file.json');
 
-split(rs, 'ascii', function (err, data) {
-  console.log(err, data);
-});
-
-return;
  
 test('file stream', function (t) {
   t.plan(10000);
