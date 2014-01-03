@@ -1,6 +1,6 @@
 # split-json
 
-<a href="https://nodei.co/npm/split-json/"><img src="https://nodei.co/npm/split-json"></a>
+<a href="https://nodei.co/npm/split-json/"><img src="https://nodei.co/npm/split-json.png"></a>
 
 
 split JSON was sent through some kind of readable stream into JSON objects
