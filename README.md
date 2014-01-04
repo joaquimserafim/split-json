@@ -2,6 +2,7 @@
 
 <a href="https://nodei.co/npm/split-json/"><img src="https://nodei.co/npm/split-json.png"></a>
 
+[![Build Status](https://travis-ci.org/joaquimserafim/split-json.png?branch=master)](https://travis-ci.org/joaquimserafim/split-json)
 
 split JSON was sent through some kind of readable stream into JSON objects
 
