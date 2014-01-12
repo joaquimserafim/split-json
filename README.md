@@ -7,6 +7,8 @@
 split JSON was sent through some kind of readable stream into JSON objects
 
 
+*Node.js version: >= 0.10*
+
 
 ##### CHANGELOG
 version 1.0.0 can only split simple objects

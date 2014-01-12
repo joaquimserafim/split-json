@@ -13,3 +13,7 @@
 
 * Now can use split-json through pipe or callaback, check examples in README
 * Add modules "splt" and removed "binary-split"
+
+2014.01.12, Version 1.2.1
+
+* Removed support to version of Node.js "0.8"
