@@ -9,7 +9,7 @@ var rs1 = fs.createReadStream('./test/file1.json');
  
  
 test('file stream', function (t) {
-  t.plan(10000);
+  t.plan(5000);
 
   split_json(rs0, function (err, doc) {
     t.ok(typeof doc === 'object', JSON.stringify(doc));
@@ -17,7 +17,7 @@ test('file stream', function (t) {
 });
 
 test('pipe file', function (t) {
-  t.plan(10000);
+  t.plan(5000);
 
   rs1.pipe(split_json(/\n,\n/)).on('data', function (doc) {
     t.pass(doc);
