@@ -7,3 +7,9 @@
 * Removed JSONHandler to parse JSON
 * Added JSONSream for parsing JSON
 * Added binary-split for split data when still as Buffer, this show good performance improvements
+
+
+2014.01.12, Version 1.2.0
+
+* Now can use split-json through pipe or callaback, check examples in README
+* Add modules "splt" and removed "binary-split"
