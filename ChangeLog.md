@@ -17,3 +17,8 @@
 2014.01.12, Version 1.2.1
 
 * Removed support to version of Node.js "0.8"
+
+
+2014.01.14
+
+* Was corrected the regex pattern "/^\[/" by "/^\[\n/"
