@@ -1,6 +1,6 @@
 {
   "name": "split-json",
-  "version": "1.2.2",
+  "version": "1.3.2",
   "description": "split text stream (JSON sent through some kind of readable stream) into JSON objects",
   "main": "index.js",
   "directories": {
@@ -24,15 +24,13 @@
     "url": "https://github.com/joaquimserafim/split-json/issues"
   },
   "homepage": "https://github.com/joaquimserafim/split-json",
-  "engines" : { 
-    "node" : ">=0.10" 
+  "engines": {
+    "node": ">=0.10"
   },
   "devDependencies": {
     "tape": "~2.3.2"
   },
   "dependencies": {
-    "JSONStream": "~0.7.1",
-    "split": "~0.2.10",
     "through": "~2.3.4"
   }
 }

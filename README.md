@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/joaquimserafim/split-json.png?branch=master)](https://travis-ci.org/joaquimserafim/split-json)
 
-split JSON was sent through some kind of readable stream into JSON objects
+split JSON was sent through some kind of readable stream in JSON objects
 
 
 *Node.js version: >= 0.10*
@@ -49,7 +49,8 @@ version 1.2.0, instead using with callback can pass through a pipe
     // PIPE
       
     var rs = fs.createReadStream('./test/file1.json')
-    rs.pipe(split_json()).on('data', callback)
+    rs.pipe(split_json([match]*)).on('data', callback)
+    
 
 
     // CODE
@@ -71,20 +72,16 @@ version 1.2.0, instead using with callback can pass through a pipe
     // from mongoDB but now through a pipe
     
     var mongojs = require('mongojs');
-    var JSONStream = require('JSONStream');
     var split_json = require('split-json');
     
     var db = mongojs('str_conn');
-    
     var collection = db.collection('my_coll');
         
-    var index = 0;
     
-    historic.find({})
-      .pipe(JSONStream.stringify())
+    collection.find({})
       .pipe(split_json())
       .on('data', function (doc) {
-        console.log(++index, doc);
+        console.log(doc);
       }).on('end', function () {
         db.close();
       });

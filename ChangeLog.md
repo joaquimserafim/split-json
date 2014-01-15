@@ -21,4 +21,9 @@
 
 2014.01.14
 
-* Was corrected the regex pattern "/^\[/" by "/^\[\n/"
+* Was corrected the regex pattern "/^\[/" by "/^\[\n/" when use split-json through a pipe
+
+
+2014.01.14
+
+* Removed modules "split" & "JSONStream"
