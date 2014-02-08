@@ -11,6 +11,8 @@ split JSON was sent through some kind of readable stream in JSON objects
 
 *Node.js version: >= 0.10*
 
+**V1.4.2**
+
 ### Library
 
     // through callback
