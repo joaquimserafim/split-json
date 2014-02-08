@@ -27,3 +27,10 @@
 2014.01.14
 
 * Removed modules "split" & "JSONStream"
+
+
+2014.02.08, Version 1.4.2
+
+* Add function 'JSONValid' which can be used to validate the object instead to use JSON.parse and try/catch, 'JSONValid' will return an valid object or null in case bad object, example in README.
+
+* Change the callback code to a function instead to have directly in callback.
