@@ -34,3 +34,9 @@
 * Add function 'JSONValid' which can be used to validate the object instead to use JSON.parse and try/catch, 'JSONValid' will return an valid object or null in case bad object, example in README.
 
 * Change the callback code to a function instead to have directly in callback.
+
+
+2014.02.16, Version 1.5.2
+
+* Removed module "through" by "through-tuga" to support Stream2/Stream3
+* Changed "tape" by "assert" for unit test

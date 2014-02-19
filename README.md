@@ -9,63 +9,48 @@
 split JSON was sent through some kind of readable stream in JSON objects
 
 
-*Node.js version: >= 0.10*
 
-**V1.4.2**
+**V1.5**
 
-### Library
+### API
 
-    // through callback
-    split_json(stream, [match], callback(err, doc))
-    
-    // [match] default to OS System end Of File
-    
-    // through pipe
-    stream.pipe(split_json([match])).on('data', function (data) {
+
+    stream.pipe(split_json([match], [encoding], [replace]))
+    .on('data', function (data) {
         console.log(split_json.JSONValid(data))
     })
     
+    [match]    => RegExp, default to os.EOL
+    [encoding] => String, utf8/ascii, default to utf8
+    [replace]  => RegExp, enable you to remove some delimiters at begin and end of a big JSON file
+        ex: /(^\[\n)|(\n\]\n$)/
+        
+        
+    // some emitters
+    on('data', callback(data))
+    on('end', [callback]);
+    
+    
     // validates JSON, instead to use JSON.parse inside of a try/catch
-    split_json.JSONValid -> null in case of error, if ok the object
+    split_json.JSONValid -> null in case of error, if ok return the object
+    
+    
+    // check is a valid Object
+    split_json.isObject(obj) -> true/false
     
 
 
 ### Examples
 
-    // require
-    var split_json = require('split-json')
-
-    // CALLBACK
-    split_json(stream, [match], callback (err, obj))
-
-    match: optional split argument to specify where to split the data.
-           The default is your current operating systems EOL sequence
-           (via require('os').EOL).
-           
-
-    // PIPE
+    // from file
 
     var rs = fs.createReadStream('./test/file1.json')
-    rs.pipe(split_json([match]*)).on('data', callback)
-
-
-    // CODE
-
-    // readable stream from file
-
-    var fs = require('fs');
-    var split_json = require('split-json');
-
-    var rs = fs.createReadStream('some_file.json');
-
-    split_json(rs, function (err, obj) {
-        if (err) throw err;
-        console.log(obj);
-    });
+    rs.pipe(split_json([match])).on('data', callback)
+        
+        
     
+    // from mongoDB
     
-    // from mongoDB but now through a pipe
-
     var mongojs = require('mongojs');
     var split_json = require('split-json');
 
@@ -73,12 +58,14 @@ split JSON was sent through some kind of readable stream in JSON objects
     var collection = db.collection('my_coll');
 
    	collection.find({})
-      .pipe(split_json())
-      .on('data', function (doc) {
+    .pipe(split_json())
+    .on('data', function (doc) {
         console.log(doc);
-      }).on('end', function () {
+    })
+    .on('end', function () {
         db.close();
-      });
+    });
+          
       
       
     // TCP socket
