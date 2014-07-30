@@ -1,6 +1,6 @@
 {
   "name": "split-json",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "split text stream (JSON sent through some kind of readable stream) into JSON objects",
   "main": "index.js",
   "directories": {
@@ -18,7 +18,7 @@
     "stream",
     "JSON"
   ],
-    "engines": {
+  "engines": {
     "node": ">=0.10"
   },
   "author": "@joaquimserafim",
@@ -27,11 +27,7 @@
     "url": "https://github.com/joaquimserafim/split-json/issues"
   },
   "homepage": "https://github.com/joaquimserafim/split-json",
-  "engines": {
-    "node": ">=0.8"
-  },
-  "devDependencies": {},
   "dependencies": {
-    "through-tuga": "~1.0.0"
+    "through-tuga": "^1.0.0"
   }
 }
