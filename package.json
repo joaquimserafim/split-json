@@ -4,13 +4,13 @@
   "description": "split text stream (JSON sent through some kind of readable stream) into JSON objects",
   "main": "index.js",
   "directories": {
+    "test": "test" 
+  },
+  "scripts": {
     "test": "node test",
     "jshint": "jshint -c .jshintrc --exclude-path .gitignore .",
     "codestyle": "jscs -p google lib/ test/",
     "coverage": "istanbul cover ./node_modules/tape/bin/tape test"
-  },
-  "scripts": {
-    "test": "node test"
   },
   "repository": {
     "type": "git",
