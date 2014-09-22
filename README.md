@@ -4,7 +4,6 @@
 
 [![Build Status](https://travis-ci.org/joaquimserafim/split-json.png?branch=master)](https://travis-ci.org/joaquimserafim/split-json)
 
-<img src="https://david-dm.org/joaquimserafim/split-json.png">
 
 split JSON was sent through some kind of readable stream in JSON objects
 
