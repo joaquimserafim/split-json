@@ -4,7 +4,10 @@
   "description": "split text stream (JSON sent through some kind of readable stream) into JSON objects",
   "main": "index.js",
   "directories": {
-    "test": "test"
+    "test": "node test",
+    "jshint": "jshint -c .jshintrc --exclude-path .gitignore .",
+    "codestyle": "jscs -p google lib/ test/",
+    "coverage": "istanbul cover ./node_modules/tape/bin/tape test"
   },
   "scripts": {
     "test": "node test"
@@ -29,5 +32,8 @@
   "homepage": "https://github.com/joaquimserafim/split-json",
   "dependencies": {
     "through-tuga": "^1.0.0"
+  },
+  "devDependencies": {
+    "tape": "^3.0.0"
   }
 }
