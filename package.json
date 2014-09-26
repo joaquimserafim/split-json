@@ -1,10 +1,10 @@
 {
   "name": "split-json",
-  "version": "1.5.3",
+  "version": "1.6.3",
   "description": "split text stream (JSON sent through some kind of readable stream) into JSON objects",
   "main": "index.js",
   "directories": {
-    "test": "test" 
+    "test": "test"
   },
   "scripts": {
     "test": "node test",
@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/joaquimserafim/split-json",
   "dependencies": {
-    "through-tuga": "^1.0.0"
+    "through-tuga": "^1.1.0"
   },
   "devDependencies": {
     "tape": "^3.0.0"
