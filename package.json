@@ -34,6 +34,12 @@
     "through-tuga": "^1.1.0"
   },
   "devDependencies": {
+    "pre-commit": "0.0.9",
     "tape": "^3.0.0"
-  }
+  },
+  "pre-commit": [
+    "jshint",
+    "codestyle",
+    "test"
+  ]
 }
