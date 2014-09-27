@@ -9,7 +9,7 @@ split JSON was sent through some kind of readable stream in JSON objects
 
 
 
-**V1.5**
+**V1.6**
 
 ### API
 

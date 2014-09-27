@@ -1,6 +1,6 @@
 {
   "name": "split-json",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "description": "split text stream (JSON sent through some kind of readable stream) into JSON objects",
   "main": "index.js",
   "directories": {

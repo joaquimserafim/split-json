@@ -4,7 +4,7 @@ var Readable = require('stream').Readable;
 
 var split = require('../');
 
-test('stream some json objects', function(assert) {
+test('stream some bad formated json file', function(assert) {
   fs.createReadStream('./test/some_json_stream.txt')
     .pipe(split(/\r/))
     .on('data', function(doc) {
@@ -13,7 +13,7 @@ test('stream some json objects', function(assert) {
     .on('end', assert.end);
 });
 
-test('stream a with single JSON data separate by "\\r"', function(assert) {
+test('a stream with single JSON data separate by "\\r"', function(assert) {
   fs.createReadStream('./test/file0.json')
     .pipe(split(/\r/))
     .on('data', function(doc) {
@@ -70,4 +70,21 @@ function(assert) {
       assert.deepEqual(split.isObject(doc), true);
     })
     .on('end', assert.end);
+});
+
+test('split strings', function(assert) {
+  var i = 0;
+  fs.createReadStream('./test/file_strings.txt')
+  .pipe(split())
+  .on('data', function(data) {
+    assert.equal(typeof data, 'string');
+    if (i++ === 0) {
+      assert.deepEqual('Hello World', data);
+    } else if (i === 1) {
+      assert.deepEqual('Felix the cat', data);
+      assert.end();
+    }
+  })
+  .on('error', assert.fail)
+  .on('end', assert.end);
 });
