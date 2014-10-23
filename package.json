@@ -1,16 +1,16 @@
 {
   "name": "split-json",
-  "version": "1.6.5",
+  "version": "1.7.5",
   "description": "split text stream (JSON sent through some kind of readable stream) into JSON objects",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "node test",
-    "jshint": "jshint -c .jshintrc --exclude-path .gitignore .",
-    "codestyle": "jscs -p google lib/ test/",
-    "coverage": "istanbul cover ./node_modules/tape/bin/tape test"
+    "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/tape/bin/tape test/index.js && ./node_modules/istanbul/lib/cli.js check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
+    "jshint": "./node_modules/jshint/bin/jshint -c .jshintrc --exclude-path .gitignore .",
+    "codestyle": "./node_modules/jscs/bin/jscs -p google lib/*.js test/*.js",
+    "coverage": "open coverage/lcov-report/index.html"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,9 @@
     "through-tuga": "^1.1.0"
   },
   "devDependencies": {
+    "istanbul": "^0.3.2",
+    "jscs": "^1.7.3",
+    "jshint": "^2.5.6",
     "pre-commit": "0.0.9",
     "tape": "^3.0.0"
   },

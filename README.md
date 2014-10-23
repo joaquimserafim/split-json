@@ -7,9 +7,9 @@
 
 split JSON was sent through some kind of readable stream in JSON objects
 
+*****100% of code coverage** (npm test & npm run coverage)
 
-
-**V1.6**
+**V1.7**
 
 ### API
 

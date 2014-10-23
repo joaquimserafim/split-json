@@ -1,11 +1,13 @@
-var fs = require('fs');
-var test = require('tape');
-var Readable = require('stream').Readable;
+'use strict';
+
+var fs        = require('fs');
+var test      = require('tape');
+var Readable  = require('stream').Readable;
 
 var split = require('../');
 
 test('stream some bad formated json file', function(assert) {
-  fs.createReadStream('./test/some_json_stream.txt')
+  fs.createReadStream(__dirname + '/fixtures/some_json_stream.txt')
     .pipe(split(/\r/))
     .on('data', function(doc) {
       assert.deepEqual(typeof doc, 'object');
@@ -14,7 +16,7 @@ test('stream some bad formated json file', function(assert) {
 });
 
 test('a stream with single JSON data separate by "\\r"', function(assert) {
-  fs.createReadStream('./test/file0.json')
+  fs.createReadStream(__dirname + '/fixtures/file0.json')
     .pipe(split(/\r/))
     .on('data', function(doc) {
       assert.deepEqual(typeof doc, 'object');
@@ -23,7 +25,7 @@ test('a stream with single JSON data separate by "\\r"', function(assert) {
 });
 
 test('stream file with a big JSON', function(assert) {
-  fs.createReadStream('./test/file1.json')
+  fs.createReadStream(__dirname + '/fixtures/file1.json')
     .pipe(split(/\n,\n/, 'utf8', /(^\[\n)|(\n\]\n$)/))
     .on('data', function(doc) {
       assert.deepEqual(typeof doc, 'object');
@@ -64,7 +66,7 @@ test('testing split arguments - ' +
   'passing match & replace' +
   'match instanceof RegExp && typeof encoding !== "string"',
 function(assert) {
-  fs.createReadStream('./test/test_args_1.txt')
+  fs.createReadStream(__dirname + '/fixtures/test_args_1.txt')
     .pipe(split(/\n/, /(^\[\n)|(\n\]\n$)/))
     .on('data', function(doc) {
       assert.deepEqual(split.isObject(doc), true);
@@ -74,7 +76,7 @@ function(assert) {
 
 test('split strings', function(assert) {
   var i = 0;
-  fs.createReadStream('./test/file_strings.txt')
+  fs.createReadStream(__dirname + '/fixtures/file_strings.txt')
   .pipe(split())
   .on('data', function(data) {
     assert.equal(typeof data, 'string');
