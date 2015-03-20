@@ -8,7 +8,7 @@
     "lib": "lib"
   },
   "files": [
-    "index.js"
+    "index.js",
     "lib",
     "LICENSE",
     "README.md"
