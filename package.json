@@ -5,7 +5,14 @@
   "main": "index.js",
   "directories": {
     "test": "test"
+    "lib": "lib"
   },
+  "files": [
+    "index.js"
+    "lib",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "test": "istanbul cover tape test/index.js",
     "jshint": "jshint -c .jshintrc --exclude-path .gitignore .",
