@@ -90,3 +90,16 @@ test('split strings', function(assert) {
   .on('error', assert.fail)
   .on('end', assert.end)
 })
+
+test('stream objects should pass', function(assert) {
+  var obj = {type: 2000, tmx: 0, rss: 0, heapTotal: 0, heapUsed:0}
+  var rs = new Readable()
+  rs.push(JSON.stringify(obj))
+  rs.push(null)
+
+  rs.pipe(split.obj())
+    .on('data', function(doc) {
+      assert.deepEqual(split.isObject(doc), true)
+    })
+    .on('end', assert.end)
+})

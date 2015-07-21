@@ -16,6 +16,13 @@ stream.pipe(split([match], [encoding], [replace]))
 .on('data', function (data) {
     console.log(split.JSONValid(data))
 })
+
+// js objects
+stream.pipe(split.obj())
+.on('data', function (obj) {
+    console.log(obj)
+})
+
 ```
 
 *   **[match]**    => RegExp, default to os.EOL
@@ -29,7 +36,7 @@ stream.pipe(split([match], [encoding], [replace]))
 ___
 
 ##### split#JSONValid
-validates JSON, instead to use JSON.parse inside of a try/catchsplit
+validates JSON, instead to use JSON.parse inside of a try/catch
 
 *split.JSONValid(obj)* -> return object `{value, error}` 
 
@@ -57,7 +64,7 @@ var rs = fs.createReadStream('./test/file1.json')
 rs.pipe(split([match])).on('data', callback)
         
 
-// from mongoDB
+// for mongoDB with mongojs use split#obj
 
 var mongojs = require('mongojs')
 
@@ -65,7 +72,7 @@ var db = mongojs('str_conn')
 var collection = db.collection('my_coll')
 
 collection.find({})
-.pipe(split())
+.pipe(split.obj())
 .on('data', function (doc) {
     console.log(doc)
 })

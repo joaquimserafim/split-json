@@ -1,6 +1,6 @@
 {
   "name": "split-json",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "split text stream (JSON sent through some kind of readable stream) into JSON objects",
   "main": "index.js",
   "directories": {
@@ -9,14 +9,13 @@
   },
   "files": [
     "index.js",
-    "lib",
     "LICENSE",
     "README.md"
   ],
   "scripts": {
     "test": "istanbul cover tape test/index.js",
     "jshint": "jshint -c .jshintrc --exclude-path .gitignore .",
-    "code-style": "jscs -p google lib/*.js test/*.js",
+    "code-style": "jscs -p google index.js test/*.js",
     "check-coverage": "istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
     "open-coverage": "open coverage/lcov-report/index.html"
   },
@@ -42,19 +41,19 @@
     "is-js-object": "^1.0.0",
     "is-regexp": "^1.0.0",
     "json-parse-safe": "^1.0.3",
-    "through2": "^0.6.3"
+    "through2": "^0.6.5"
   },
   "devDependencies": {
-    "istanbul": "^0.3.8",
-    "jscs": "^1.11.3",
-    "jshint": "^2.6.3",
-    "pre-commit": "^1.0.6",
-    "tape": "^3.5.0"
+    "istanbul": "^0.3.17",
+    "jscs": "^1.13.1",
+    "jshint": "^2.8.0",
+    "pre-commit": "^1.0.10",
+    "tape": "^4.0.1"
   },
   "pre-commit": [
     "jshint",
     "code-style",
-    "check-coverage",
-    "test"
+    "test",
+    "check-coverage"
   ]
 }
