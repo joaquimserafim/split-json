@@ -12,7 +12,7 @@ split.JSONValid = JSONParse
 split.isObject  = isJsObject
 split.obj       = splitByObjects
 
-function split (match, encoding, replace) {
+function split (match, encoding, replace, replaceChunk) {
   var cache   = []
 
   ;match    = match || new RegExp(os.EOL);
@@ -46,6 +46,11 @@ function split (match, encoding, replace) {
     var array = str.split(match)
 
     for (var i = 0; i < array.length; i++) {
+
+      if (typeof replaceChunk === 'function') {
+        array[i] = replaceChunk(array[i])
+      }
+
       var json = JSONParse(cache.join('') + array[i])
 
       if (json.value) {
