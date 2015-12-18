@@ -117,3 +117,17 @@ test('stream objects should pass', function(assert) {
     })
     .on('end', assert.end)
 })
+
+test('stream objects should fail when is not a js object', function(assert) {
+  var obj = 'bad js object'
+  var rs = new Readable()
+  rs.push(JSON.stringify(obj))
+  rs.push(null)
+
+  rs.pipe(split.obj())
+    .on('data', function(doc) {
+      assert.deepEqual(split.isObject(doc), false)
+    })
+    .on('error', assert.ok)
+    .on('end', assert.end)
+})

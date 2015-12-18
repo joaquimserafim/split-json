@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/joaquimserafim/split-json",
   "dependencies": {
-    "is-js-object": "^1.0.0",
+    "is-js-object": "^1.2.2",
     "is-regexp": "^1.0.0",
     "json-parse-safe": "^1.0.3",
     "through2": "^0.6.5"
@@ -48,7 +48,7 @@
     "jscs": "^1.13.1",
     "jshint": "^2.8.0",
     "pre-commit": "^1.0.10",
-    "tape": "^4.0.1"
+    "tape": "^4.2.2"
   },
   "pre-commit": [
     "jshint",

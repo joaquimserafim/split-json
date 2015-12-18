@@ -75,7 +75,8 @@ function split (match, encoding, replace, replaceChunk) {
 
 function splitByObjects () {
   function run (obj, enc, cb) {
-    cb(null, obj);
+    var o = JSONParse(obj)
+    cb(o.error, o.value);
   }
 
   return through({objectMode: true}, run)
