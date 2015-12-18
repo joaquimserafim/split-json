@@ -33,6 +33,20 @@ test('stream file with a big JSON', function(assert) {
     .on('end', assert.end)
 })
 
+test('stream file with a oneline JSON Array', function(assert) {
+
+  var replaceChunk = function(chunk) {
+    return chunk.replace(/(\{*)(.*)(\}*)/, '{$2}');
+  };
+
+  fs.createReadStream(__dirname + '/fixtures/oneLineJson.json')
+    .pipe(split(/\},{/, 'utf8', /(^\[)|(\]$)/, replaceChunk))
+    .on('data', function(doc) {
+      assert.deepEqual(typeof doc, 'object')
+    })
+    .on('end', assert.end)
+})
+
 test('single JS Object & use split.isObject to test is a JS object',
 function(assert) {
   var obj = {type: 2000, tmx: 0, rss: 0, heapTotal: 0, heapUsed:0}
